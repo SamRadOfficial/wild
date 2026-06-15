@@ -15,7 +15,7 @@
 <meta property="og:description" content="For those who lead where there is no map. A year-long initiation across four wilds." />
 <meta property="og:site_name" content="WILD" />
 <!-- EDIT here: set canonical domain + social share image when live -->
-<meta property="og:url" content="https://wild.institute" />
+<meta property="og:url" content="https://wi-ld.com" />
 
 <!-- FAVICON (inline SVG compass, data URI) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' fill='%230A0C10'/%3E%3Cg fill='none' stroke='%2393B0C4' stroke-width='8' stroke-linejoin='round'%3E%3Cpolygon points='120,40 132,112 120,124 108,112'/%3E%3Cpolygon points='120,200 132,128 120,116 108,128'/%3E%3Cpolygon points='200,120 128,108 116,120 128,132'/%3E%3Cpolygon points='40,120 112,108 124,120 112,132'/%3E%3C/g%3E%3Cpolygon points='120,90 98,138 142,138' fill='none' stroke='%23BCD6E6' stroke-width='8'/%3E%3C/svg%3E" />
@@ -23,7 +23,7 @@
 <!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Permanent+Marker&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
   /* ============ DESIGN TOKENS ============ */
@@ -45,7 +45,6 @@
     --font-display:'Cinzel',serif;
     --font-serif:'Spectral',serif;
     --font-mono:'IBM Plex Mono',monospace;
-    --font-mark:'Permanent Marker',cursive;
   }
 
   /* ============ RESET / BASE ============ */
@@ -64,7 +63,7 @@
   :focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:2px;}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px;}
-  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.32em;color:var(--dim);}
+  .eyebrow{font-family:var(--font-mono);font-size:13px;letter-spacing:.3em;color:var(--dim);}
   .ital{font-family:var(--font-serif);font-style:italic;color:var(--slate);line-height:1.55;}
 
   /* ============ NAV ============ */
@@ -76,8 +75,8 @@
     backdrop-filter:blur(10px);
     border-bottom:0.5px solid var(--hairline);
   }
-  .nav .mark{font-family:var(--font-mono);color:var(--slate-lt);font-size:14px;letter-spacing:.3em;font-weight:500;}
-  .nav .links{font-family:var(--font-mono);color:var(--dim);font-size:11px;letter-spacing:.16em;display:flex;gap:22px;}
+  .nav .mark{font-family:var(--font-mono);color:var(--slate-lt);font-size:16px;letter-spacing:.3em;font-weight:500;}
+  .nav .links{font-family:var(--font-mono);color:var(--dim);font-size:12.5px;letter-spacing:.16em;display:flex;gap:24px;}
   .nav .links a:hover{color:var(--bone);}
   @media(max-width:680px){.nav .links{display:none;}}
 
@@ -91,19 +90,19 @@
   @keyframes spin{to{transform:rotate(360deg);}}
   .hero-mark{
     font-family:var(--font-display);font-weight:900;
-    font-size:clamp(64px,15vw,128px);line-height:.9;letter-spacing:.1em;
+    font-size:clamp(72px,16vw,140px);line-height:.9;letter-spacing:.1em;
     color:var(--slate-lt);margin:10px 0 0 .1em;
   }
-  .sub{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:0 12px;margin-top:18px;font-family:var(--font-mono);}
-  .sub .official{font-size:13px;letter-spacing:.26em;color:var(--bone);}
-  .reveal{position:relative;font-size:13px;letter-spacing:.26em;color:var(--dim);}
-  .reveal svg{position:absolute;left:-4px;top:48%;width:calc(100% + 8px);height:14px;overflow:visible;}
-  .disruption{font-family:var(--font-mark);font-size:30px;color:var(--ember);transform:rotate(-4deg);display:inline-block;line-height:1;}
-  .stance{font-family:var(--font-serif);font-style:italic;font-size:clamp(16px,2.4vw,20px);line-height:1.55;color:var(--bone);max-width:440px;margin:38px auto 0;}
+  .sub{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;margin-top:22px;font-family:var(--font-mono);}
+  .sub .official{font-size:15px;letter-spacing:.24em;color:var(--bone);}
+  .reveal{position:relative;display:inline-block;font-size:15px;letter-spacing:.24em;color:#5A5F66;}
+  .reveal .strike{position:absolute;left:-3px;top:47%;width:calc(100% + 6px);height:4.5px;background:var(--ember);opacity:.92;}
+  .disruption{font-family:var(--font-mono);font-weight:500;font-size:15px;letter-spacing:.34em;color:var(--ember);border:1px solid rgba(224,97,60,.55);padding:7px 10px 7px 15px;transform:rotate(-1.5deg);display:inline-block;}
+  .stance{font-family:var(--font-serif);font-style:italic;font-size:clamp(18px,2.6vw,23px);line-height:1.55;color:var(--bone);max-width:470px;margin:38px auto 0;}
   .stance b{font-style:normal;font-weight:500;color:var(--slate-lt);}
 
   /* ============ CTA ============ */
-  .cta{display:inline-flex;align-items:center;gap:11px;font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;border-radius:2px;transition:all .25s;}
+  .cta{display:inline-flex;align-items:center;gap:11px;font-family:var(--font-mono);font-size:13.5px;letter-spacing:.2em;border-radius:2px;transition:all .25s;}
   .cta.solid{color:var(--void);background:var(--bone);padding:16px 30px;font-weight:500;}
   .cta.solid:hover{background:var(--ember);color:#fff;}
   .cta.ghost{color:var(--bone);border:1px solid rgba(147,176,196,.45);padding:15px 28px;}
@@ -111,9 +110,9 @@
 
   /* ============ SECTION SHELL ============ */
   .section{padding:64px 0;border-top:0.5px solid var(--hairline);}
-  .section-head{text-align:center;max-width:440px;margin:0 auto;}
-  .section-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,5vw,40px);letter-spacing:.06em;color:var(--bone);margin:16px 0 12px;}
-  .section-head .ital{font-size:14.5px;}
+  .section-head{text-align:center;max-width:470px;margin:0 auto;}
+  .section-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5.4vw,46px);letter-spacing:.06em;color:var(--bone);margin:16px 0 12px;}
+  .section-head .ital{font-size:16.5px;}
 
   /* ============ FOUR WILDS ============ */
   .grid4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:36px;}
@@ -121,19 +120,19 @@
   .card::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--ac);opacity:.85;}
   .card .top{display:flex;align-items:center;gap:9px;margin-bottom:16px;}
   .card .top svg{width:22px;height:22px;flex:none;}
-  .card .el{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--ac);}
-  .card .name{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:.04em;color:var(--bone);margin:0;}
-  .card .loc{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim);margin:5px 0 14px;}
-  .card .desc{font-family:var(--font-serif);font-style:italic;font-size:14px;line-height:1.5;color:var(--bone-dim);margin:0 0 22px;min-height:42px;}
+  .card .el{font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;color:var(--ac);}
+  .card .name{font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--bone);margin:0;}
+  .card .loc{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;color:var(--dim);margin:6px 0 15px;}
+  .card .desc{font-family:var(--font-serif);font-style:italic;font-size:16px;line-height:1.5;color:var(--bone-dim);margin:0 0 24px;min-height:48px;}
   @media(max-width:560px){.grid4{grid-template-columns:1fr;}}
 
   /* ============ CREED ============ */
   .creed{position:relative;max-width:480px;margin:36px auto 0;}
-  .creed .spine{position:absolute;left:27px;top:38px;bottom:38px;width:1px;background:var(--slate);opacity:.22;}
-  .creed .row{display:flex;align-items:baseline;gap:26px;margin-bottom:34px;}
+  .creed .spine{position:absolute;left:23px;top:36px;bottom:36px;width:1px;background:var(--slate);opacity:.22;}
+  .creed .row{display:flex;align-items:baseline;gap:24px;margin-bottom:30px;}
   .creed .row:last-child{margin-bottom:0;}
-  .creed .letter{font-family:var(--font-display);font-weight:900;font-size:54px;line-height:1;color:var(--slate-lt);width:56px;flex:none;text-align:center;}
-  .creed .text{font-family:var(--font-serif);font-size:clamp(19px,3.4vw,26px);line-height:1.3;color:var(--bone);}
+  .creed .letter{font-family:var(--font-display);font-weight:900;font-size:46px;line-height:1;color:var(--slate-lt);width:48px;flex:none;text-align:center;}
+  .creed .text{font-family:var(--font-serif);font-size:clamp(17px,2.9vw,23px);line-height:1.3;color:var(--bone);}
   .creed .text .v{font-weight:500;}
   .creed .text.lead{color:var(--slate);font-style:italic;}
 
@@ -142,33 +141,33 @@
   .path .line{position:absolute;top:25px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,var(--ice),var(--ochre),var(--teal),var(--moss));opacity:.55;}
   .node{position:relative;text-align:center;padding:0 6px;}
   .node .dot{width:50px;height:50px;margin:0 auto 14px;position:relative;z-index:2;background:var(--void);border-radius:50%;display:flex;align-items:center;justify-content:center;border:0.5px solid var(--ac);}
-  .node .num{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--ac);}
-  .node .biome{font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:.03em;color:var(--bone);margin:0 0 4px;}
-  .node .season{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--dim);}
+  .node .num{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ac);}
+  .node .biome{font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.03em;color:var(--bone);margin:0 0 4px;}
+  .node .season{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--dim);}
   .year-cta{text-align:center;border-top:0.5px solid rgba(255,255,255,.08);padding-top:36px;}
-  .secondary{display:block;margin-top:20px;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--slate);}
+  .secondary{display:block;margin-top:20px;font-family:var(--font-mono);font-size:13.5px;letter-spacing:.1em;color:var(--slate);}
   .secondary u{text-decoration:none;border-bottom:1px solid rgba(147,176,196,.4);}
   .secondary:hover{color:var(--bone);}
   @media(max-width:560px){.path{grid-template-columns:repeat(2,1fr);gap:28px 0;}.path .line{display:none;}}
 
   /* ============ CORPORATE ============ */
   .corp{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:8px;}
-  .corp .body{flex:1;min-width:260px;font-family:var(--font-serif);font-size:15.5px;line-height:1.65;color:var(--bone-dim);}
+  .corp .body{flex:1;min-width:260px;font-family:var(--font-serif);font-size:17.5px;line-height:1.65;color:var(--bone-dim);}
   .corp .body strong{color:var(--bone);font-weight:500;}
 
   /* ============ PROOF ============ */
-  .quote{font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,3.6vw,29px);line-height:1.4;color:var(--bone);text-align:center;max-width:560px;margin:28px auto 18px;}
-  .attr{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--dim);text-align:center;}
-  .trust{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--slate);text-align:center;margin-top:32px;opacity:.85;}
+  .quote{font-family:var(--font-serif);font-style:italic;font-size:clamp(19px,3vw,25px);line-height:1.45;color:var(--bone-dim);text-align:center;max-width:520px;margin:28px auto 18px;}
+  .attr{font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;color:var(--dim);text-align:center;}
+  .trust{font-family:var(--font-mono);font-size:13px;letter-spacing:.2em;color:var(--slate);text-align:center;margin-top:32px;opacity:.85;}
 
   /* ============ INITIATE ============ */
   .initiate{text-align:center;padding:84px 26px;border-top:0.5px solid var(--hairline);background-image:radial-gradient(110% 80% at 50% 100%,rgba(224,97,60,.1),transparent 62%);}
-  .initiate h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4.8vw,40px);letter-spacing:.04em;color:var(--bone);margin:20px auto 16px;max-width:480px;line-height:1.2;}
-  .initiate .ital{font-size:15px;max-width:400px;margin:0 auto 32px;}
-  .micro{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--dim);margin-top:24px;}
+  .initiate h2{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5.2vw,46px);letter-spacing:.04em;color:var(--bone);margin:20px auto 16px;max-width:520px;line-height:1.2;}
+  .initiate .ital{font-size:17.5px;max-width:430px;margin:0 auto 32px;}
+  .micro{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;color:var(--dim);margin-top:24px;}
 
   /* ============ FOOTER ============ */
-  footer{text-align:center;padding:34px 26px;border-top:0.5px solid var(--hairline);font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:#5C6069;}
+  footer{text-align:center;padding:36px 26px;border-top:0.5px solid var(--hairline);font-family:var(--font-mono);font-size:13px;letter-spacing:.2em;color:#5C6069;}
 
   /* ============ REDUCED MOTION ============ */
   @media(prefers-reduced-motion:reduce){
@@ -221,8 +220,8 @@
     <!-- The Development -> Disruption reveal. ONE home only; do not repeat elsewhere. -->
     <p class="sub">
       <span class="official">WORLD&nbsp;INSTITUTE&nbsp;FOR&nbsp;LEADERSHIP</span>
-      <span class="reveal">DEVELOPMENT<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C40 4, 80 12, 120 6 S180 5, 198 8" stroke="#E0613C" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg></span>
-      <span class="disruption">Disruption</span>
+      <span class="reveal">DEVELOPMENT<span class="strike" aria-hidden="true"></span></span>
+      <span class="disruption">DISRUPTION</span>
     </p>
 
     <p class="stance">We take leaders out of the boardroom and into the elements — to rewild what acceleration tried to civilize. Courage, purpose, and <b>WILD humanity.</b></p>
@@ -316,7 +315,7 @@
       <div class="corp">
         <p class="body"><strong>Bring the wild to your team.</strong><br>Standalone expeditions and elemental offsites for leadership teams who need to break pattern — not in a hotel ballroom, but on a ridgeline. Bespoke, by arrangement.</p>
         <!-- mailto routing shown as a name; literal address lives only inside the link -->
-        <a class="cta ghost" href="mailto:expeditions@wild.institute?subject=WILD%20for%20our%20team" style="flex:none;">ENQUIRE FOR YOUR TEAM&nbsp;&nbsp;→</a>
+        <a class="cta ghost" href="mailto:initiation@wi-ld.com?subject=WILD%20for%20our%20team" style="flex:none;">ENQUIRE FOR YOUR TEAM&nbsp;&nbsp;→</a>
       </div>
     </div>
   </section>
@@ -342,7 +341,7 @@
     <h2 id="init-h">Beyond this point, there are no maps.</h2>
     <p class="ital">Cohorts are small and by invitation. Tell us who you are.</p>
     <!-- mailto routing for v1. Upgrade path: Formspree or a small Vercel serverless function. -->
-    <a class="cta solid" href="mailto:initiation@wild.institute?subject=Request%20for%20Initiation">REQUEST INITIATION&nbsp;&nbsp;→</a>
+    <a class="cta solid" href="mailto:initiation@wi-ld.com?subject=Request%20for%20Initiation">REQUEST INITIATION&nbsp;&nbsp;→</a>
     <!-- EDIT here: cohort size -->
     <p class="micro">BY INVITATION · LIMITED TO TWELVE PER COHORT</p>
   </section>
