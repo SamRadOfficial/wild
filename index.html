@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO / META -->
+<title>WILD — World Institute for Leadership Disruption</title>
+<meta name="description" content="WILD takes leaders out of the boardroom and into the elements. A year-long initiation across four wilds — Mountains, Desert, Sea, Jungle — to rewild what acceleration tried to civilize." />
+<meta name="theme-color" content="#0A0C10" />
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="WILD — World Institute for Leadership Disruption" />
+<meta property="og:description" content="For those who lead where there is no map. A year-long initiation across four wilds." />
+<meta property="og:site_name" content="WILD" />
+<!-- EDIT here: set canonical domain + social share image when live -->
+<meta property="og:url" content="https://wild.institute" />
+
+<!-- FAVICON (inline SVG compass, data URI) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' fill='%230A0C10'/%3E%3Cg fill='none' stroke='%2393B0C4' stroke-width='8' stroke-linejoin='round'%3E%3Cpolygon points='120,40 132,112 120,124 108,112'/%3E%3Cpolygon points='120,200 132,128 120,116 108,128'/%3E%3Cpolygon points='200,120 128,108 116,120 128,132'/%3E%3Cpolygon points='40,120 112,108 124,120 112,132'/%3E%3C/g%3E%3Cpolygon points='120,90 98,138 142,138' fill='none' stroke='%23BCD6E6' stroke-width='8'/%3E%3C/svg%3E" />
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Permanent+Marker&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root{
+    --void:#0A0C10;        /* warm-cool near-black base */
+    --panel:#10141A;       /* raised surface */
+    --bone:#E9E6DF;        /* warm off-white text */
+    --bone-dim:#C4C1BA;
+    --dim:#8A94A2;         /* muted utility text */
+    --slate:#93B0C4;       /* institutional accent */
+    --slate-lt:#BCD6E6;
+    --ice:#A9C6D6;         /* WILD Mountains */
+    --ochre:#D9A24A;       /* WILD Desert */
+    --teal:#4FA39E;        /* WILD Sea */
+    --moss:#5FA56B;        /* WILD Jungle */
+    --ember:#E0613C;       /* RESERVED: the Disruption reveal only */
+    --hairline:rgba(255,255,255,.07);
+    --maxw:1080px;
+    --font-display:'Cinzel',serif;
+    --font-serif:'Spectral',serif;
+    --font-mono:'IBM Plex Mono',monospace;
+    --font-mark:'Permanent Marker',cursive;
+  }
+
+  /* ============ RESET / BASE ============ */
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--bone);
+    font-family:var(--font-serif);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:2px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px;}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.32em;color:var(--dim);}
+  .ital{font-family:var(--font-serif);font-style:italic;color:var(--slate);line-height:1.55;}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 26px;
+    background:rgba(10,12,16,.78);
+    backdrop-filter:blur(10px);
+    border-bottom:0.5px solid var(--hairline);
+  }
+  .nav .mark{font-family:var(--font-mono);color:var(--slate-lt);font-size:14px;letter-spacing:.3em;font-weight:500;}
+  .nav .links{font-family:var(--font-mono);color:var(--dim);font-size:11px;letter-spacing:.16em;display:flex;gap:22px;}
+  .nav .links a:hover{color:var(--bone);}
+  @media(max-width:680px){.nav .links{display:none;}}
+
+  /* ============ HERO ============ */
+  .hero{
+    text-align:center;padding:60px 26px 88px;
+    background-image:radial-gradient(120% 80% at 50% 14%,rgba(60,86,104,.16),transparent 60%);
+  }
+  .emblem{width:118px;height:118px;}
+  .emblem .spin{transform-origin:120px 120px;animation:spin 80s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .hero-mark{
+    font-family:var(--font-display);font-weight:900;
+    font-size:clamp(64px,15vw,128px);line-height:.9;letter-spacing:.1em;
+    color:var(--slate-lt);margin:10px 0 0 .1em;
+  }
+  .sub{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:0 12px;margin-top:18px;font-family:var(--font-mono);}
+  .sub .official{font-size:13px;letter-spacing:.26em;color:var(--bone);}
+  .reveal{position:relative;font-size:13px;letter-spacing:.26em;color:var(--dim);}
+  .reveal svg{position:absolute;left:-4px;top:48%;width:calc(100% + 8px);height:14px;overflow:visible;}
+  .disruption{font-family:var(--font-mark);font-size:30px;color:var(--ember);transform:rotate(-4deg);display:inline-block;line-height:1;}
+  .stance{font-family:var(--font-serif);font-style:italic;font-size:clamp(16px,2.4vw,20px);line-height:1.55;color:var(--bone);max-width:440px;margin:38px auto 0;}
+  .stance b{font-style:normal;font-weight:500;color:var(--slate-lt);}
+
+  /* ============ CTA ============ */
+  .cta{display:inline-flex;align-items:center;gap:11px;font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;border-radius:2px;transition:all .25s;}
+  .cta.solid{color:var(--void);background:var(--bone);padding:16px 30px;font-weight:500;}
+  .cta.solid:hover{background:var(--ember);color:#fff;}
+  .cta.ghost{color:var(--bone);border:1px solid rgba(147,176,196,.45);padding:15px 28px;}
+  .cta.ghost:hover{border-color:var(--ember);color:var(--ember);}
+
+  /* ============ SECTION SHELL ============ */
+  .section{padding:64px 0;border-top:0.5px solid var(--hairline);}
+  .section-head{text-align:center;max-width:440px;margin:0 auto;}
+  .section-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,5vw,40px);letter-spacing:.06em;color:var(--bone);margin:16px 0 12px;}
+  .section-head .ital{font-size:14.5px;}
+
+  /* ============ FOUR WILDS ============ */
+  .grid4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:36px;}
+  .card{background:var(--panel);border:0.5px solid rgba(255,255,255,.08);border-radius:10px;padding:22px 22px 0;position:relative;overflow:hidden;}
+  .card::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--ac);opacity:.85;}
+  .card .top{display:flex;align-items:center;gap:9px;margin-bottom:16px;}
+  .card .top svg{width:22px;height:22px;flex:none;}
+  .card .el{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--ac);}
+  .card .name{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:.04em;color:var(--bone);margin:0;}
+  .card .loc{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim);margin:5px 0 14px;}
+  .card .desc{font-family:var(--font-serif);font-style:italic;font-size:14px;line-height:1.5;color:var(--bone-dim);margin:0 0 22px;min-height:42px;}
+  @media(max-width:560px){.grid4{grid-template-columns:1fr;}}
+
+  /* ============ CREED ============ */
+  .creed{position:relative;max-width:480px;margin:36px auto 0;}
+  .creed .spine{position:absolute;left:27px;top:38px;bottom:38px;width:1px;background:var(--slate);opacity:.22;}
+  .creed .row{display:flex;align-items:baseline;gap:26px;margin-bottom:34px;}
+  .creed .row:last-child{margin-bottom:0;}
+  .creed .letter{font-family:var(--font-display);font-weight:900;font-size:54px;line-height:1;color:var(--slate-lt);width:56px;flex:none;text-align:center;}
+  .creed .text{font-family:var(--font-serif);font-size:clamp(19px,3.4vw,26px);line-height:1.3;color:var(--bone);}
+  .creed .text .v{font-weight:500;}
+  .creed .text.lead{color:var(--slate);font-style:italic;}
+
+  /* ============ THE WILD YEAR ============ */
+  .path{display:grid;grid-template-columns:repeat(4,1fr);position:relative;margin:38px 0 44px;}
+  .path .line{position:absolute;top:25px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,var(--ice),var(--ochre),var(--teal),var(--moss));opacity:.55;}
+  .node{position:relative;text-align:center;padding:0 6px;}
+  .node .dot{width:50px;height:50px;margin:0 auto 14px;position:relative;z-index:2;background:var(--void);border-radius:50%;display:flex;align-items:center;justify-content:center;border:0.5px solid var(--ac);}
+  .node .num{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--ac);}
+  .node .biome{font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:.03em;color:var(--bone);margin:0 0 4px;}
+  .node .season{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--dim);}
+  .year-cta{text-align:center;border-top:0.5px solid rgba(255,255,255,.08);padding-top:36px;}
+  .secondary{display:block;margin-top:20px;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--slate);}
+  .secondary u{text-decoration:none;border-bottom:1px solid rgba(147,176,196,.4);}
+  .secondary:hover{color:var(--bone);}
+  @media(max-width:560px){.path{grid-template-columns:repeat(2,1fr);gap:28px 0;}.path .line{display:none;}}
+
+  /* ============ CORPORATE ============ */
+  .corp{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:8px;}
+  .corp .body{flex:1;min-width:260px;font-family:var(--font-serif);font-size:15.5px;line-height:1.65;color:var(--bone-dim);}
+  .corp .body strong{color:var(--bone);font-weight:500;}
+
+  /* ============ PROOF ============ */
+  .quote{font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,3.6vw,29px);line-height:1.4;color:var(--bone);text-align:center;max-width:560px;margin:28px auto 18px;}
+  .attr{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--dim);text-align:center;}
+  .trust{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--slate);text-align:center;margin-top:32px;opacity:.85;}
+
+  /* ============ INITIATE ============ */
+  .initiate{text-align:center;padding:84px 26px;border-top:0.5px solid var(--hairline);background-image:radial-gradient(110% 80% at 50% 100%,rgba(224,97,60,.1),transparent 62%);}
+  .initiate h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4.8vw,40px);letter-spacing:.04em;color:var(--bone);margin:20px auto 16px;max-width:480px;line-height:1.2;}
+  .initiate .ital{font-size:15px;max-width:400px;margin:0 auto 32px;}
+  .micro{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--dim);margin-top:24px;}
+
+  /* ============ FOOTER ============ */
+  footer{text-align:center;padding:34px 26px;border-top:0.5px solid var(--hairline);font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:#5C6069;}
+
+  /* ============ REDUCED MOTION ============ */
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .emblem .spin{animation:none;}
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a href="#top" class="mark">WILD</a>
+    <div class="links">
+      <a href="#wilds">THE WILDS</a>
+      <a href="#creed">CREED</a>
+      <a href="#year">THE YEAR</a>
+      <a href="#initiate">INITIATE</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-mark">
+    <p class="eyebrow" style="margin-bottom:28px;">BY INVITATION&nbsp;·&nbsp;FOR THOSE WHO LEAD WHERE THERE IS NO MAP</p>
+
+    <svg class="emblem" viewBox="0 0 240 240" role="img" aria-label="The WILD emblem: a compass enclosing a pyramid">
+      <g class="spin">
+        <circle cx="120" cy="120" r="58" fill="none" stroke="#93B0C4" stroke-width="10" stroke-dasharray="1.2 6.6" opacity=".5"/>
+        <path d="M120 120 L150 90 M120 120 L150 150 M120 120 L90 150 M120 120 L90 90" stroke="#93B0C4" stroke-width="0.7" opacity=".4" fill="none"/>
+      </g>
+      <circle cx="120" cy="120" r="44" fill="none" stroke="#93B0C4" stroke-width="1.2" opacity=".85"/>
+      <circle cx="120" cy="120" r="39" fill="none" stroke="#93B0C4" stroke-width="0.5" opacity=".35"/>
+      <g fill="none" stroke="#93B0C4" stroke-width="1.3" stroke-linejoin="round">
+        <polygon points="120,48 125,112 120,120 115,112"/><polygon points="120,192 125,128 120,120 115,128"/>
+        <polygon points="192,120 128,115 120,120 128,125"/><polygon points="48,120 112,115 120,120 112,125"/>
+      </g>
+      <g fill="none" stroke="#BCD6E6" stroke-width="1.3" stroke-linejoin="round">
+        <polygon points="120,99 104,131 136,131"/><path d="M104 131 L120 114 M136 131 L120 114 M120 99 L120 114"/>
+      </g>
+      <circle cx="120" cy="99" r="2.6" fill="#BCD6E6"/>
+    </svg>
+
+    <h1 class="hero-mark" id="hero-mark">WILD</h1>
+
+    <!-- The Development -> Disruption reveal. ONE home only; do not repeat elsewhere. -->
+    <p class="sub">
+      <span class="official">WORLD&nbsp;INSTITUTE&nbsp;FOR&nbsp;LEADERSHIP</span>
+      <span class="reveal">DEVELOPMENT<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C40 4, 80 12, 120 6 S180 5, 198 8" stroke="#E0613C" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg></span>
+      <span class="disruption">Disruption</span>
+    </p>
+
+    <p class="stance">We take leaders out of the boardroom and into the elements — to rewild what acceleration tried to civilize. Courage, purpose, and <b>WILD humanity.</b></p>
+
+    <p style="margin-top:36px;"><a class="cta ghost" href="#initiate">REQUEST INITIATION&nbsp;&nbsp;→</a></p>
+  </section>
+
+  <!-- ============ THE FOUR WILDS ============ -->
+  <section class="section" id="wilds" aria-labelledby="wilds-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">FOUR ELEMENTS · ONE INITIATION</p>
+        <h2 id="wilds-h">THE FOUR WILDS</h2>
+        <p class="ital">The compass points outward. Each direction strips a different layer — and returns a different leader.</p>
+      </div>
+      <div class="grid4">
+        <!-- WILD Mountains -->
+        <article class="card" style="--ac:var(--ice);">
+          <div class="top"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#A9C6D6" stroke-width="1" opacity=".5"/><polygon points="20,4 23,20 20,24 17,20" fill="none" stroke="#A9C6D6" stroke-width="1.3"/></svg><span class="el">NORTH · STONE &amp; AIR</span></div>
+          <h3 class="name">WILD MOUNTAINS</h3>
+          <p class="loc">NEPAL · THE HIMALAYA</p>
+          <p class="desc">Altitude strips the noise. What's left is the leader.</p>
+        </article>
+        <!-- WILD Desert -->
+        <article class="card" style="--ac:var(--ochre);">
+          <div class="top"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#D9A24A" stroke-width="1" opacity=".5"/><polygon points="36,20 20,23 16,20 20,17" fill="none" stroke="#D9A24A" stroke-width="1.3"/></svg><span class="el">EAST · SUN &amp; SAND</span></div>
+          <h3 class="name">WILD DESERT</h3>
+          <p class="loc">EGYPT · THE SAHARA</p>
+          <p class="desc">Nothing to hide behind. Only sky, sand, and self.</p>
+        </article>
+        <!-- WILD Sea — EDIT here: confirm location -->
+        <article class="card" style="--ac:var(--teal);">
+          <div class="top"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#4FA39E" stroke-width="1" opacity=".5"/><polygon points="4,20 20,23 24,20 20,17" fill="none" stroke="#4FA39E" stroke-width="1.3"/></svg><span class="el">WEST · DEPTH &amp; TIDE</span></div>
+          <h3 class="name">WILD SEA</h3>
+          <p class="loc">THE NORWEGIAN FJORDS</p>
+          <p class="desc">The deep teaches surrender before it teaches mastery.</p>
+        </article>
+        <!-- WILD Jungle -->
+        <article class="card" style="--ac:var(--moss);">
+          <div class="top"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#5FA56B" stroke-width="1" opacity=".5"/><polygon points="20,36 23,20 20,16 17,20" fill="none" stroke="#5FA56B" stroke-width="1.3"/></svg><span class="el">SOUTH · ROOT &amp; LIFE</span></div>
+          <h3 class="name">WILD JUNGLE</h3>
+          <p class="loc">BRAZIL · THE AMAZON</p>
+          <p class="desc">Life at full volume. Relearn how to belong to it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE CREED ============ -->
+  <section class="section" id="creed" aria-labelledby="creed-h">
+    <div class="wrap">
+      <p class="eyebrow" id="creed-h" style="text-align:center;">THE CREED</p>
+      <div class="creed">
+        <div class="spine"></div>
+        <div class="row"><span class="letter">W</span><span class="text lead">Within, we —</span></div>
+        <div class="row"><span class="letter">I</span><span class="text"><span class="v">Ignite.</span> <span class="v">Imagine.</span> <span class="v">Inspire.</span></span></div>
+        <div class="row"><span class="letter">L</span><span class="text"><span class="v">Liberate.</span> <span class="v">Levitate.</span> <span class="v">Love.</span></span></div>
+        <div class="row"><span class="letter">D</span><span class="text"><span class="v">Deepen.</span> <span class="v">Dare.</span> <span class="v">Dream.</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE WILD YEAR ============ -->
+  <section class="section" id="year" aria-labelledby="year-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">THE FLAGSHIP · TWELVE MONTHS · BY APPLICATION</p>
+        <h2 id="year-h">ONE YEAR. FOUR WILDS.</h2>
+        <p class="ital">A single cohort. Four elements, in sequence. You enter a leader and leave something closer to human.</p>
+      </div>
+      <!-- Real sequence => numbering is earned. Order is the narrative: ascend, strip, surrender, return. -->
+      <div class="path">
+        <div class="line"></div>
+        <div class="node" style="--ac:var(--ice);"><div class="dot"><span class="num">I</span></div><p class="biome">MOUNTAINS</p><span class="season">ASCEND</span></div>
+        <div class="node" style="--ac:var(--ochre);"><div class="dot"><span class="num">II</span></div><p class="biome">DESERT</p><span class="season">STRIP</span></div>
+        <div class="node" style="--ac:var(--teal);"><div class="dot"><span class="num">III</span></div><p class="biome">SEA</p><span class="season">SURRENDER</span></div>
+        <div class="node" style="--ac:var(--moss);"><div class="dot"><span class="num">IV</span></div><p class="biome">JUNGLE</p><span class="season">RETURN</span></div>
+      </div>
+      <div class="year-cta">
+        <!-- EDIT here: CTA verb is intentionally unified across the site -->
+        <a class="cta solid" href="#initiate">REQUEST INITIATION&nbsp;&nbsp;→</a>
+        <a class="secondary" href="#corporate">or bring WILD to your company — <u>standalone offsites &amp; expeditions</u></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR ORGANIZATIONS ============ -->
+  <section class="section" id="corporate" aria-labelledby="corp-h">
+    <div class="wrap">
+      <p class="eyebrow" id="corp-h">FOR ORGANIZATIONS</p>
+      <div class="corp">
+        <p class="body"><strong>Bring the wild to your team.</strong><br>Standalone expeditions and elemental offsites for leadership teams who need to break pattern — not in a hotel ballroom, but on a ridgeline. Bespoke, by arrangement.</p>
+        <!-- mailto routing shown as a name; literal address lives only inside the link -->
+        <a class="cta ghost" href="mailto:expeditions@wild.institute?subject=WILD%20for%20our%20team" style="flex:none;">ENQUIRE FOR YOUR TEAM&nbsp;&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF — EDIT here: replace with a real cohort quote when available ============ -->
+  <section class="section" aria-labelledby="proof-h">
+    <div class="wrap">
+      <p class="eyebrow" id="proof-h" style="text-align:center;">THE COMPANY YOU KEEP</p>
+      <blockquote class="quote">"I arrived as a CEO. I left as a person who happens to run a company."</blockquote>
+      <p class="attr">— COHORT I · NAME WITHHELD BY REQUEST</p>
+      <p class="trust">FOUNDERS&nbsp;·&nbsp;OPERATORS&nbsp;·&nbsp;INVESTORS&nbsp;·&nbsp;HEADS OF STATE</p>
+    </div>
+  </section>
+
+  <!-- ============ INITIATE ============ -->
+  <section class="initiate" id="initiate" aria-labelledby="init-h">
+    <svg width="56" height="56" viewBox="0 0 240 240" role="img" aria-label="The WILD emblem">
+      <circle cx="120" cy="120" r="44" fill="none" stroke="#93B0C4" stroke-width="1.4" opacity=".8"/>
+      <g fill="none" stroke="#93B0C4" stroke-width="1.6" stroke-linejoin="round"><polygon points="120,52 125,112 120,120 115,112"/><polygon points="120,188 125,128 120,120 115,128"/><polygon points="188,120 128,115 120,120 128,125"/><polygon points="52,120 112,115 120,120 112,125"/></g>
+      <g fill="none" stroke="#BCD6E6" stroke-width="1.6"><polygon points="120,99 104,131 136,131"/><path d="M104 131 L120 114 M136 131 L120 114 M120 99 L120 114"/></g>
+      <circle cx="120" cy="99" r="2.8" fill="#BCD6E6"/>
+    </svg>
+    <h2 id="init-h">Beyond this point, there are no maps.</h2>
+    <p class="ital">Cohorts are small and by invitation. Tell us who you are.</p>
+    <!-- mailto routing for v1. Upgrade path: Formspree or a small Vercel serverless function. -->
+    <a class="cta solid" href="mailto:initiation@wild.institute?subject=Request%20for%20Initiation">REQUEST INITIATION&nbsp;&nbsp;→</a>
+    <!-- EDIT here: cohort size -->
+    <p class="micro">BY INVITATION · LIMITED TO TWELVE PER COHORT</p>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  © 2026 WILD
+</footer>
+
+</body>
+</html>
